@@ -1,13 +1,17 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { AddToCartAnimation } from "../../components/Header/Header.styles";
 
 // Create a new context for the cart
 export const CartContext = createContext();
 
+// Retrieve the cart data from LocalStorage
+const savedCart = localStorage.getItem("cart");
+const parsedCart = JSON.parse(savedCart);
+
 // CartProvider component
 export const CartProvider = ({ children }) => {
   // State variables
-  const [cart, setCart] = useState({ products: [] });
+  const [cart, setCart] = useState(parsedCart || { products: [] });
   const [discountAmount, setDiscountAmount] = useState(0);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [cartCount, setCartCount] = useState(0);
@@ -85,6 +89,12 @@ export const CartProvider = ({ children }) => {
     setCheckoutSuccess(true);
     clearCart();
   };
+
+  // Update the cart in LocalStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCartCount(cart.products.length); // Update cartCount whenever cart changes
+  }, [cart]);
 
   // Context values to be provided
   const contextValues = {
