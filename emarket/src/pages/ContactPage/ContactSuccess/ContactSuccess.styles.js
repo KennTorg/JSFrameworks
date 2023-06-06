@@ -5,6 +5,7 @@ export const Card = styled.div`
   margin: 100px;
   text-align: center;
   color: #333;
+  min-height: 100vh;
 
   h1 {
     font-size: 36px;

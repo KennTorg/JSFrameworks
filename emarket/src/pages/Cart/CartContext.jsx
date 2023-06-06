@@ -111,7 +111,6 @@ export const CartProvider = ({ children }) => {
     cartCount,
     setCartCount,
     setCheckoutSuccess,
-    showAddToCartAnimation, //add to cart animation
     setShowAddToCartAnimation, //add to cart animation
   };
 

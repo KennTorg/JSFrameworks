@@ -6,6 +6,7 @@ export const Card = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 18px;
   text-align: center;
+  min-height: 100vh;
 `;
 
 export const Heading = styled.h1`
@@ -24,7 +25,7 @@ export const BackToStore = styled.p`
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 24px;
-  text-decoration: none;
+  text-decoration: nunderline;
   color: black;
 
   &:hover {

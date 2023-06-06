@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const FormContainer = styled.div`
   margin: 2rem auto;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 5.5rem;
+  margin-bottom: 5.3rem;
   max-width: 600px;
   padding: 2rem;
   background-color: rgb(245, 245, 245);
@@ -81,7 +81,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-
   &:hover {
     background-color: #005fa3;
   }
