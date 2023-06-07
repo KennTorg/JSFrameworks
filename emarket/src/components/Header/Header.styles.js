@@ -35,7 +35,8 @@ export const HeaderLogo = styled.div`
 export const CheckoutLink = styled.a`
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
+  right: 10px;
   color: #333;
   text-decoration: none;
 
@@ -57,11 +58,6 @@ export const ShoppingCartIcon = styled(FaShoppingCart)`
     color: #ff5722;
     transition: 0.3s;
   }
-
-  @media (max-width: 768px) {
-    width: 16px;
-    height: 16px;
-  }
 `;
 
 export const CartCounter = styled.span`
@@ -76,4 +72,7 @@ export const CartCounter = styled.span`
   position: absolute;
   top: -5px;
   right: -5px;
+
+  @media (max-width: 768px) {
+  }
 `;
