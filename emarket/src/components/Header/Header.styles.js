@@ -22,7 +22,7 @@ export const HeaderWrapper = styled.header`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 20px 10px;
+    position: relative;
   }
 `;
 
@@ -51,7 +51,7 @@ export const CheckoutLink = styled.a`
 
   @media (max-width: 768px) {
     font-size: 14px;
-
+    position: fixed;
     span {
       font-size: 12px;
     }
