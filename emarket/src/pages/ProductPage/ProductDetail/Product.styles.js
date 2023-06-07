@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -161,6 +161,15 @@ export const ReviewDescription = styled.p`
   }
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 export const AddToCartButton = styled.button`
   background-color: #ff5722;
   color: #fff;
@@ -175,8 +184,12 @@ export const AddToCartButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: hsl(20, 100%, 65%);
+    opacity: 0.6;
     transition: 0.3s;
     cursor: pointer;
+  }
+
+  &:active {
+    animation: ${fadeIn} 0.2s ease-in-out;
   }
 `;

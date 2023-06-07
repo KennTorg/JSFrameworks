@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
 
 export const HeaderWrapper = styled.header`
@@ -10,6 +10,15 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 20px;
   background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: ${({ transparent }) =>
+    transparent ? "transparent" : "#f5f5f5"};
+  transition: background-color 0.3s ease-in-out;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -35,12 +44,10 @@ export const HeaderLogo = styled.div`
 export const CheckoutLink = styled.a`
   display: flex;
   align-items: center;
+  position: relative;
+  right: 10px;
   color: #333;
   text-decoration: none;
-
-  span {
-    margin-right: 8px;
-  }
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -60,24 +67,21 @@ export const ShoppingCartIcon = styled(FaShoppingCart)`
     color: #ff5722;
     transition: 0.3s;
   }
+`;
+
+export const CartCounter = styled.span`
+  display: inline-block;
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+  margin-left: 5px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
 
   @media (max-width: 768px) {
-    width: 16px;
-    height: 16px;
   }
-`;
-
-// Define the animation keyframes
-const scaleAnimation = keyframes`
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(2);
-  }
-`;
-
-// Apply the animation to the styled component
-export const AddToCartAnimation = styled.div`
-  animation: ${scaleAnimation} 0.3s ease-in-out;
 `;

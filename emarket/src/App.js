@@ -6,8 +6,6 @@ import Contact from "./pages/ContactPage";
 import Checkout from "./pages/CheckoutPage";
 import CheckoutSuccess from "./pages/CheckoutPage/CheckoutSuccess";
 import ProductList from "./pages/ProductPage/ProductList";
-import CartIcon from "./components/CartIcon";
-//import { GlobalStyles } from "./GlobalStyles";
 
 function App() {
   return (
@@ -18,7 +16,6 @@ function App() {
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/checkoutSuccess' element={<CheckoutSuccess />} />
         <Route path='/product/:id' element={<ProductList />} />
-        <Route path='/cart' element={<CartIcon />} />
       </Route>
     </Routes>
   );

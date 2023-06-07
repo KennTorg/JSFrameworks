@@ -1,5 +1,4 @@
-import { createContext, useState, useContext, useEffect } from "react";
-import { AddToCartAnimation } from "../../components/Header/Header.styles";
+import { createContext, useState, useEffect } from "react";
 
 // Create a new context for the cart
 export const CartContext = createContext();
@@ -15,12 +14,9 @@ export const CartProvider = ({ children }) => {
   const [discountAmount, setDiscountAmount] = useState(0);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-  const [showAddToCartAnimation, setShowAddToCartAnimation] = useState(false); //add to cart animation
 
   // Add a product to the cart
   const addToCart = (product) => {
-    setShowAddToCartAnimation(true); //add to cart animation
-
     const productIndex = cart.products.findIndex((p) => p.id === product.id);
 
     if (productIndex >= 0) {
@@ -111,22 +107,11 @@ export const CartProvider = ({ children }) => {
     cartCount,
     setCartCount,
     setCheckoutSuccess,
-    setShowAddToCartAnimation, //add to cart animation
   };
 
   return (
     <CartContext.Provider value={contextValues}>
       {children}
-      {showAddToCartAnimation && <AddToCartAnimation />}
     </CartContext.Provider>
   );
-};
-
-// Custom hook to access the cart context
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be within a CartProvider");
-  }
-  return context;
 };

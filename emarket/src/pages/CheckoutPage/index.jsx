@@ -8,6 +8,7 @@ import {
   Buttons,
   RemoveButton,
   CheckoutButton,
+  CartPage,
 } from "./Checkout.styles";
 import { Link } from "react-router-dom";
 
@@ -42,7 +43,7 @@ const ProductItem = ({
 );
 
 const Checkout = () => {
-  // Destructure CartContext directly in the function signature
+  // Destructure CartContext directly in the function
   const {
     cart,
     removeProduct,
@@ -105,44 +106,46 @@ const Checkout = () => {
     );
 
   return (
-    <Card>
-      <h2>Products:</h2>
-      {cart.products.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <div>
-          <List>
-            {cart.products.map((product) => (
-              <ProductItem
-                key={product.id}
-                product={product}
-                handleIncrement={handleIncrement}
-                handleDecrement={handleDecrement}
-                handleRemoveProduct={handleRemoveProduct}
+    <CartPage>
+      <Card>
+        <h2>Products:</h2>
+        {cart.products.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <div>
+            <List>
+              {cart.products.map((product) => (
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  handleIncrement={handleIncrement}
+                  handleDecrement={handleDecrement}
+                  handleRemoveProduct={handleRemoveProduct}
+                />
+              ))}
+            </List>
+            <p>Total Price: {discountText}</p>
+            <div>
+              <input
+                type='text'
+                placeholder='Enter Discount Code'
+                value={discountCode}
+                onChange={handleDiscountCodeChange}
               />
-            ))}
-          </List>
-          <p>Total Price: {discountText}</p>
-          <div>
-            <input
-              type='text'
-              placeholder='Enter discount code'
-              value={discountCode}
-              onChange={handleDiscountCodeChange}
-            />
-            <Buttons onClick={handleApplyDiscount}>Apply Discount</Buttons>
+              <Buttons onClick={handleApplyDiscount}>Apply Discount</Buttons>
+            </div>
+            <div>
+              <Buttons onClick={handleClearCart}>Clear Cart</Buttons>
+              <Link to='/checkoutSuccess'>
+                <CheckoutButton className='CheckoutButton'>
+                  Checkout
+                </CheckoutButton>
+              </Link>
+            </div>
           </div>
-          <div>
-            <Buttons onClick={handleClearCart}>Clear Cart</Buttons>
-            <Link to='/checkoutSuccess'>
-              <CheckoutButton className='CheckoutButton'>
-                Checkout
-              </CheckoutButton>
-            </Link>
-          </div>
-        </div>
-      )}
-    </Card>
+        )}
+      </Card>
+    </CartPage>
   );
 };
 
