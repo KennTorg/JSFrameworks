@@ -10,6 +10,15 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 20px;
   background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: ${({ transparent }) =>
+    transparent ? "transparent" : "#f5f5f5"};
+  transition: background-color 0.3s ease-in-out;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -35,7 +44,7 @@ export const HeaderLogo = styled.div`
 export const CheckoutLink = styled.a`
   display: flex;
   align-items: center;
-  position: fixed;
+  position: relative;
   right: 10px;
   color: #333;
   text-decoration: none;
