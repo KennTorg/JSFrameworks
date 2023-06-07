@@ -4,6 +4,7 @@ import {
   HeaderLogo,
   CheckoutLink,
   ShoppingCartIcon,
+  CartCounter,
 } from "./Header.styles";
 import { Link } from "react-router-dom";
 import Nav from "../Navbar";
@@ -21,8 +22,8 @@ const Header = () => {
       </HeaderLogo>
       <Nav />
       <CheckoutLink as={Link} to='/checkout' active>
-        <span>{cartCount}</span>
         <ShoppingCartIcon />
+        <CartCounter>{cartCount}</CartCounter>
       </CheckoutLink>
     </HeaderWrapper>
   );

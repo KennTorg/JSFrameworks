@@ -1,26 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../pages/Cart/CartContext";
 import { Link } from "react-router-dom";
-import { AddToCartAnimation } from "../Header/Header.styles";
 
 function CartIcon() {
   const { cart, addToCart } = useContext(CartContext);
   const { products } = cart;
 
-  // Declare and initialize showAddToCartAnimation state
-  const [showAddToCartAnimation, setShowAddToCartAnimation] = useState(false);
-
   // Render the list of products in the cart
-  const productItems = products.map((product) => (
-    <li key={product.id}>
-      {product.title} - ${product.price}
-    </li>
-  ));
+  const productItems = products.map((product) => {
+    return (
+      <li key={product.id}>
+        {product.title} - ${product.price}
+      </li>
+    );
+  });
 
   // Add a product to the cart
   const handleAddToCart = (product) => {
     addToCart(product);
-    setShowAddToCartAnimation(true);
   };
 
   return (
@@ -41,8 +38,6 @@ function CartIcon() {
       </button>
       {/* Display the number of items in the cart */}
       <p>Number of items: {products ? products.length : 0}</p>
-
-      {showAddToCartAnimation && <AddToCartAnimation />}
     </div>
   );
 }
