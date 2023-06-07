@@ -16,7 +16,7 @@ const CheckoutSuccess = () => {
   return (
     <Card>
       <Heading>Checkout Success!</Heading>
-      <Message>Thank you for your purchase.</Message>
+      <Message>Thank you for your purchase. </Message>
       <BackToStore as={Link} to='/'>
         Back to store
       </BackToStore>

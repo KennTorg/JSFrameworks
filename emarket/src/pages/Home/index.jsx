@@ -8,7 +8,7 @@ const Home = () => {
   const [searchText, setSearchText] = useState(""); // State for search input text
 
   useEffect(() => {
-    // Fetch products from API when the component mounts
+    // Fetch products from API
     fetch("https://api.noroff.dev/api/v1/online-shop")
       .then((response) => response.json())
       .then((data) => {

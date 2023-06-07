@@ -65,7 +65,6 @@ function Contact() {
           <H1>Contact Us!</H1>
           <Hr />
           <form onSubmit={handleSubmit}>
-            {/* Full Name */}
             <Label>
               Full Name:
               <Input
@@ -81,7 +80,6 @@ function Contact() {
               )}
             </Label>
 
-            {/* Subject */}
             <Label>
               Subject:
               <Input
@@ -95,7 +93,6 @@ function Contact() {
               {errors.subject && <ErrorMessage>{errors.subject}</ErrorMessage>}
             </Label>
 
-            {/* Email */}
             <Label>
               Email:
               <Input
@@ -108,7 +105,6 @@ function Contact() {
               {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
             </Label>
 
-            {/* Body */}
             <Label>
               Body:
               <TextArea
@@ -121,7 +117,6 @@ function Contact() {
               {errors.body && <ErrorMessage>{errors.body}</ErrorMessage>}
             </Label>
 
-            {/* Submit button */}
             <Button type='submit'>Submit</Button>
           </form>
         </FormContainer>

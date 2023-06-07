@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const CartPage = styled.div`
+  min-height: 100vh;
+`;
+
 export const Card = styled.div`
   padding: 1.5em;
   width: 100%;
